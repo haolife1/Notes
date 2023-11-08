@@ -22,3 +22,15 @@ ps -eLo pid,lwp,pmem,pcpu,args | grep <pid>
 ```
 pmap -x <pid>
 ```
+### 修改core file size
+1 临时修改
+ulimit -c unlimited
+2 永久修改
+echo "* soft core unlimited" >>/etc/security/limits.conf
+
+### 修改线程栈大小
+1 临时修改
+ulimit -s 102400
+2 永久修改
+echo "* soft stack 102400" >>/etc/security/limits.conf
+
